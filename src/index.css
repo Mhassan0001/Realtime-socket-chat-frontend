@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+
+.bg {
+  background-image: url("../src/assets/images/Background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 30px 50px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.891);
+}
+
+.nav{
+    width: 100vw;
+    height: 3rem;
+    background-color: black;
+}
