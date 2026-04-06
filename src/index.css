@@ -1,8 +1,6 @@
 @import "tailwindcss";
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap");
 
-
-
 @theme {
   --font-sans: "Inter", sans-serif;
 }
@@ -17,7 +15,6 @@
   height: auto;
 
   padding-bottom: 10rem;
-  
 }
 
 .nav {
@@ -32,10 +29,28 @@
 /* !Signup */
 
 .form {
-  width: 466px;
-  height: 20rem;
-  background-color: #45484F;
+  width: 350px;
+  height: 33rem;
+  background-color: #22262f;
   border-radius: 1rem;
-
-  
+ box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
+
+.h-form-custom {
+  height: 2.4rem;
+  background-color: rgba(0, 0, 0, 0.697);
+}
+::placeholder {
+  padding-left: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.sign-text {
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: .5px;
+}
+
+/* 
+input{
+  background-color: #00000000; */
