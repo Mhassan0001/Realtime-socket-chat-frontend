@@ -4,6 +4,7 @@ import round2 from "../assets/images/round2.png";
 import round3 from "../assets/images/round3.png";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Link } from "react-router";
 
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
@@ -19,7 +20,7 @@ const SignUp = () => {
   const handleChange = (e) => {
     setFormData({
       ...formData, // previous state copy karo
-      [e.target.name]: e.target.value, 
+      [e.target.name]: e.target.value,
     });
   };
   //?==================================================
@@ -126,7 +127,7 @@ const SignUp = () => {
                     value={formData.firstName}
                     placeholder="Aura"
                     type="text"
-                    className="w-full  rounded-lg h-form-custom"
+                    className="w-full  rounded-lg h-form-custom     focus:outline-none focus:ring-2 focus:ring-purple-400"
                     required
                     onChange={handleChange}
                   />
@@ -141,7 +142,7 @@ const SignUp = () => {
                     placeholder="Voyager"
                     type="text"
                     required
-                    className="w-full  rounded-lg h-form-custom"
+                    className="w-full  rounded-lg h-form-custom focus:outline-none focus:ring-2 focus:ring-purple-400"
                   />
                 </div>
               </div>
@@ -156,7 +157,7 @@ const SignUp = () => {
                     placeholder="voyager@pulse.eth"
                     type="email"
                     required
-                    className="w-full  rounded-lg h-form-custom"
+                    className="w-full  rounded-lg h-form-custom focus:outline-none focus:ring-2 focus:ring-purple-400"
                   />
                 </div>
               </div>
@@ -171,7 +172,7 @@ const SignUp = () => {
                     placeholder="+1 (555) 000-0000"
                     type="text"
                     required
-                    className="w-full  rounded-lg h-form-custom"
+                    className="w-full  rounded-lg h-form-custom focus:outline-none focus:ring-2 focus:ring-purple-400"
                   />
                 </div>
               </div>
@@ -185,7 +186,7 @@ const SignUp = () => {
                     onChange={handleChange}
                     placeholder="••••••••••••"
                     type="text"
-                    className="w-full  rounded-lg h-form-custom"
+                    className="w-full  rounded-lg h-form-custom focus:outline-none focus:ring-2 focus:ring-purple-400"
                   />
                 </div>
               </div>
@@ -203,7 +204,9 @@ const SignUp = () => {
               <div className="flex justify-center items-center pt-4">
                 <p className="text-sm">
                   Already Have an Account?
-                  <span className="color-Login">Login </span>
+                  <span className="color-Login">
+                    <Link to="/login"> Login </Link>
+                  </span>
                 </p>
               </div>
             </div>
