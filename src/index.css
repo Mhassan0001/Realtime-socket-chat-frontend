@@ -18,7 +18,7 @@
 }
 
 .bg-login {
-  background-image: url("../src/assets/images/Background.png");
+  background-image: url("../src/assets/images/background1.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center 30px 50px;
@@ -122,3 +122,52 @@ input:-webkit-autofill {
   box-shadow: 0 0 0 1000px black inset !important;
   -webkit-text-fill-color: white !important; /* text bhi white rakhne ke liye */
 }
+
+/* ========================================================== */
+
+/*! Login---Page */
+
+.formLogin {
+  width: 350px;
+  height: auto;
+  background-color: #22262f;
+  border-radius: 1rem;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+  padding-bottom: 3rem;
+}
+
+.login-text {
+  line-height: 34px;
+  font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.h-custom-login {
+  height: 0.3rem;
+}
+
+.sp {
+  letter-spacing: 0.5px;
+
+}
+
+.text-heading-l2 {
+  
+  /* font-weight: bold; */
+  font-size: 80px;
+  /* line-height: 80px; */
+  /* color: #00e3fd; */
+  font-weight: bold;
+}
+
+.h-custom-login1 {
+  height: 5rem !important;
+}
+

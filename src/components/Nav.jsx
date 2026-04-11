@@ -7,14 +7,21 @@ const Nav = () => {
         <div className="col-span-6 text-white justify-self-start ">
           chat APP
         </div>
-        <div className="col-span-3 text-white justify-self-end">Security</div>
-        <div className="col-span-1 text-white g justify-self-end">
+
+        <div className="col-span-3 text-white g justify-self-end">
           <NavLink
             to="/"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-          
             Sign Up
+          </NavLink>
+        </div>
+        <div className="col-span-1 text-white justify-self-center">
+          <NavLink
+            to="/login"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Login
           </NavLink>
         </div>
       </div>
