@@ -1,9 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router";
 import round4 from "../assets/images/round4.png";
 import round5 from "../assets/images/round5.png";
 import round6 from "../assets/images/round6.png";
+import { toast } from "react-toastify";
 const Login = () => {
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const { email, password } = formData;
+    if (!email || !password) {
+      return toast.error("All Fields Required");
+    }
+    setLoading(true);
+    try {
+      const res = await axios.post(
+        "http://localhost:9000/auth/login",
+        formData,
+      );
+      console.log("Login Successfully....", res.data);
+      toast.success("Login Successfully....");
+    } catch (err) {
+      console.error(err);
+      let errorMsg = "Login failed!";
+
+      if (err.response && err.response.data) {
+        // ✅ 'msg' (success) aur 'message' (error) dono check karo
+        errorMsg =
+          err.response.data.msg ||
+          err.response.data.message ||
+          "Signup failed!";
+      }
+
+      toast.error(errorMsg);
+    }
+
+    setLoading(false);
+  };
+
   return (
     <>
       <div className="bg-login">
@@ -40,8 +84,8 @@ const Login = () => {
 
                 <div className="col-span-3">
                   <p className="roundimg flex justify-start">
-                    Joined by 
-                    <span className="color-Login font-bold px-1"> 12k+ </span> 
+                    Joined by
+                    <span className="color-Login font-bold px-1"> 12k+ </span>
                     in the conversation
                   </p>
                 </div>
@@ -61,6 +105,8 @@ const Login = () => {
                 <div className="col-1 pt-2">
                   <p className="text-xs text-[#A9ABB3] pb-1">Email</p>
                   <input
+                    onChange={handleChange}
+                    value={formData.email}
                     name="email"
                     placeholder="voyager@pulse.eth"
                     type="email"
@@ -74,6 +120,8 @@ const Login = () => {
                 <div className="col-1 pt-2">
                   <p className="text-xs text-[#A9ABB3] pb-1">Password</p>
                   <input
+                    onChange={handleChange}
+                    value={formData.password}
                     name="password"
                     placeholder="••••••••••••"
                     type="text"
@@ -83,8 +131,12 @@ const Login = () => {
               </div>
 
               <div className="flex justify-center items-center pt-7">
-                <button className="bg-purple-400 text-purple-950 uppercase  w-full h-10 rounded-3xl font-bold cursor-pointer">
-                  Login To Chat
+                <button
+                  disabled={loading}
+                  onClick={handleSubmit}
+                  className="bg-purple-400 text-purple-950 uppercase  w-full h-10 rounded-3xl font-bold cursor-pointer"
+                >
+                  {loading ? "Loading..." : "Login To Chat"}
                 </button>
               </div>
               <p className="text-center text-sm py-6 cursor-pointer sp text-[#00e3fd]  ">
