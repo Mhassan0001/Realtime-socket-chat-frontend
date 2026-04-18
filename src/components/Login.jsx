@@ -29,6 +29,9 @@ const Login = () => {
         formData,
       );
       console.log("Login Successfully....", res.data);
+
+      localStorage.setItem("authToken", res.data.token);
+
       toast.success("Login Successfully....");
     } catch (err) {
       console.error(err);
@@ -43,9 +46,9 @@ const Login = () => {
       }
 
       toast.error(errorMsg);
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   return (
@@ -124,7 +127,7 @@ const Login = () => {
                     value={formData.password}
                     name="password"
                     placeholder="••••••••••••"
-                    type="text"
+                    type="password"
                     className="w-full  rounded-lg h-form-custom focus:outline-none focus:ring-2 focus:ring-purple-400"
                   />
                 </div>
