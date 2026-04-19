@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import round4 from "../assets/images/round4.png";
 import round5 from "../assets/images/round5.png";
 import round6 from "../assets/images/round6.png";
 import { toast } from "react-toastify";
 const Login = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const handleChange = (e) => {
@@ -33,6 +34,7 @@ const Login = () => {
       localStorage.setItem("authToken", res.data.token);
 
       toast.success("Login Successfully....");
+      navigate("/dashboard");
     } catch (err) {
       console.error(err);
       let errorMsg = "Login failed!";

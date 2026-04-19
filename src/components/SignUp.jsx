@@ -185,7 +185,7 @@ const SignUp = () => {
                     value={formData.password}
                     onChange={handleChange}
                     placeholder="••••••••••••"
-                    type="text"
+                    type="password"
                     className="w-full  rounded-lg h-form-custom focus:outline-none focus:ring-2 focus:ring-purple-400"
                   />
                 </div>
