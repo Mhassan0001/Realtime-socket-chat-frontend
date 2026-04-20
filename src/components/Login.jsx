@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router-dom";
 import round4 from "../assets/images/round4.png";
 import round5 from "../assets/images/round5.png";
 import round6 from "../assets/images/round6.png";

@@ -4,7 +4,7 @@ import round2 from "../assets/images/round2.png";
 import round3 from "../assets/images/round3.png";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   const [loading, setLoading] = useState(false);

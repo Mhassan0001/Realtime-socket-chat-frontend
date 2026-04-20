@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 const Nav = () => {
   const [open, setOpen] = useState(false);
   return (
