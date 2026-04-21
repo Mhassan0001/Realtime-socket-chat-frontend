@@ -1,12 +1,14 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Nav from "./components/Nav";
 import { ToastContainer } from "react-toastify";
 const App = () => {
+  const location = useLocation();
+  const hideNav = location.pathname.startsWith("/dashboard");
   return (
     <>
       <main>
-        <Nav />
+        {!hideNav && <Nav />}
         <Outlet />
         <ToastContainer />
       </main>
