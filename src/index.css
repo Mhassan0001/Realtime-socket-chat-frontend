@@ -155,11 +155,9 @@ input:-webkit-autofill {
 
 .sp {
   letter-spacing: 0.5px;
-
 }
 
 .text-heading-l2 {
-  
   /* font-weight: bold; */
   font-size: 80px;
   /* line-height: 80px; */
@@ -171,3 +169,6 @@ input:-webkit-autofill {
   height: 5rem !important;
 }
 
+.x {
+  color: blue;
+}
