@@ -172,3 +172,15 @@ input:-webkit-autofill {
 .x {
   color: blue;
 }
+
+/* ========================================================== */
+
+/*! Dashboard */
+
+
+.custom-dashIn{
+  background-color: #27272A;
+  height: 41px;
+  width: 314px;
+
+}

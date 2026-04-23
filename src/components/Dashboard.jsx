@@ -23,7 +23,19 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="bg-[#0C0C0E]"></div>
+        <div className="bg-[#0C0C0E]">
+          <p className="tracking-[3.6px] text-[18px] text-white p-7">
+            Whats'Up
+          </p>
+
+          <p className="pl-7">
+            <input
+              type=""
+              className="focus:outline-none text-[#A9ABB3] custom-dashIn focus:ring-2 focus:ring-purple-400 "
+              placeholder="Find Contact's"
+            />
+          </p>
+        </div>
       </div>
     </>
   );
