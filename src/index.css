@@ -5,6 +5,46 @@
   --font-sans: "Inter", sans-serif;
 }
 
+/* --------------------------------------------------------------- */
+
+/* Scrollbar ki width */
+/* ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+} */
+
+/* Scrollbar track (background) */
+/* ::-webkit-scrollbar-track {
+  background: #1e1e2f;
+  border-radius: 10px;
+} */
+
+/* Scrollbar thumb (jo drag hota hai) */
+/* ::-webkit-scrollbar-thumb {
+  background:#a1a1aa;
+  border-radius: 10px;
+} */
+
+/* Thumb on hover */
+/* ::-webkit-scrollbar-thumb:hover {
+  background:#ac8fec;
+} */
+
+
+/* ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+} */
+/* ::-webkit-scrollbar-button {
+  background: #8B5CF6;
+  height: 16px;
+  border-radius: 4px;
+} */
+/* ::-webkit-scrollbar-button:hover {
+  background: #a855f7;
+} */
+/* --------------------------------------------------------------- */
+
 .bg {
   background-image: url("../src/assets/images/Background.png");
   background-size: cover;
@@ -177,10 +217,43 @@ input:-webkit-autofill {
 
 /*! Dashboard */
 
-
-.custom-dashIn{
-  background-color: #27272A;
+.custom-dashIn {
+  background-color: #27272a;
   height: 41px;
   width: 314px;
-
 }
+
+.cust-sp {
+  letter-spacing: 3.6px;
+  color: #06b6d4;
+}
+
+.custom-border {
+  border: 1px solid #06b6d4;
+  opacity: 5%;
+  background-color: #00e3fd;
+}
+
+.search-btn {
+  font-size: 9px;
+  width: 75px;
+  height: 24px;
+  background-color: #8b5cf6;
+  color: white;
+  letter-spacing: 2px;
+  /* line-height: 13.5px; */
+}
+
+.add-btn {
+  font-size: 9px;
+  letter-spacing: 2px;
+  width: 46.2px;
+  height: 24px;
+  background-color: #27272a;
+  color: white;
+
+  /* line-height: 13.5px; */
+  border: 1px solid #a1a1aa;
+}
+
+/* ===================================================== */

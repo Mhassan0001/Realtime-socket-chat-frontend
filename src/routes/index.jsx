@@ -4,6 +4,7 @@ import SignUp from "../components/SignUp";
 import Login from "../components/Login";
 import Dashboard from "../components/Dashboard";
 import ProtectedRoute from "../components/ProtectedRoute";
+import Testing from "../components/Testing";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,12 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+
+
+       {
+        path: "/t",
+        element: <Testing />,
       },
 
       {

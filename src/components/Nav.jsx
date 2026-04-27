@@ -10,8 +10,8 @@ const Nav = () => {
           <div className="text-xl font-bold">Chat APP</div>
 
           {/* Desktop Menu */}
-          <ul className="hidden md:flex space-x-6">
-            <li className=" cursor-pointer">
+          <ul className="hidden md:flex space-x-6 tracking-[2px]">
+            <li className=" cursor-pointer ">
               <NavLink
                 to="/login"
                 className={({ isActive }) => (isActive ? "active" : "")}
