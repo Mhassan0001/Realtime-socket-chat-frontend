@@ -51,8 +51,8 @@ const Testing = () => {
           ></div>
 
           {/* Off-canvas content - beech mein center */}
-          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#0C0C0E] border border-purple-500 rounded-lg p-6 z-50 w-96 max-w-[90vw] shadow-xl">
-            <div className="flex justify-between items-center mb-4">
+          <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#0C0C0E] border border-purple-500 rounded-lg p-6 z-50 w-96 max-w-[80vw] shadow-xl max-h-[80vh] overflow-y-auto ">
+            <div className="flex justify-between items-center mb-4 ">
               <h2 className="text-white text-xl font-bold">Search Contact's</h2>
               <button
                 onClick={closeOffCanvas}
