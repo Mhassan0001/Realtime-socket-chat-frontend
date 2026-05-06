@@ -46,12 +46,12 @@ const Search = () => {
       }
     } catch (err) {
       // Simple error handling
-      if (err.response) {
-        toast.error(err.response.data.message || "User not found");
+      if (err.response?.status === 401) {
+        toast.error("Session expired!");
+        localStorage.removeItem("authToken");
+        navigate("/login");
       } else {
-        toast.error(
-          "Server not responding. Please check if backend is running.",
-        );
+        toast.error("Unable to reach the server. Please refresh the page.");
       }
       setFilter([]);
     }
