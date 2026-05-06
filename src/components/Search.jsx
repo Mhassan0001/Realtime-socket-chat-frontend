@@ -1,30 +1,66 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
-  const contacts = [
-    { id: 1, name: "Ali Raza", number: "03001234567" },
-    { id: 2, name: "Sara Khan", number: "03119876543" },
-    { id: 3, name: "Ahmed Malik", number: "03225558888" },
-    { id: 4, name: "Fatima Noor", number: "03339994444" },
-    { id: 5, name: "Noor", number: "03339994494" },
-    { id: 6, name: "Noob", number: "033399987667" },
-  ];
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState([]);
+  const navigate = useNavigate();
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+
+    if (!token) {
+      toast.warning("Please login first!");
+      navigate("/login");
+    }
+  }, [navigate]);
+
+  const searchFromApi = async (mobile) => {
+    if (mobile.trim() === "") {
+      setFilter([]);
+
+      return;
+    }
+
+    try {
+      const token = localStorage.getItem("authToken");
+      const response = await axios.get(
+        `http://localhost:9000/chat/getUserByMobile/${mobile}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      if (response.data.success) {
+        const apiContact = {
+          id: response.data.data._id,
+          name: `${response.data.data.firstName} ${response.data.data.lastName}`,
+          number: response.data.data.mobile,
+          email: response.data.data.email,
+        };
+
+        setFilter([apiContact]);
+      }
+    } catch (err) {
+      // Simple error handling
+      if (err.response) {
+        toast.error(err.response.data.message || "User not found");
+      } else {
+        toast.error(
+          "Server not responding. Please check if backend is running.",
+        );
+      }
+      setFilter([]);
+    }
+  };
 
   const handleSearch = (e) => {
     let value = e.target.value;
     setQuery(value);
-
-    if (value.trim() === "") {
-      setFilter([]);
-    } else {
-      const result = contacts.filter((contact) =>
-        contact.number.includes(value),
-      );
-
-      setFilter(result);
-    }
+    searchFromApi(value);
   };
   return (
     <>
