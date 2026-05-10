@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
@@ -7,14 +7,6 @@ const Search = () => {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState([]);
   const navigate = useNavigate();
-  useEffect(() => {
-    const token = localStorage.getItem("authToken");
-
-    if (!token) {
-      toast.warning("Please login first!");
-      navigate("/login");
-    }
-  }, [navigate]);
 
   const searchFromApi = async (mobile) => {
     if (mobile.trim() === "") {
@@ -34,15 +26,17 @@ const Search = () => {
         },
       );
 
-      if (response.data.success) {
-        const apiContact = {
-          id: response.data.data._id,
-          name: `${response.data.data.firstName} ${response.data.data.lastName}`,
-          number: response.data.data.mobile,
-          email: response.data.data.email,
-        };
+      const user = response.data.data;
 
-        setFilter([apiContact]);
+      if (user.length > 0) {
+        const formated = user.map((user) => ({
+          id: user._id,
+          name: `${user.firstName} ${user.lastName}`,
+          number: user.mobile,
+          email: user.email,
+        }));
+
+        setFilter(formated);
       }
     } catch (err) {
       // Simple error handling
@@ -61,6 +55,36 @@ const Search = () => {
     let value = e.target.value;
     setQuery(value);
     searchFromApi(value);
+  };
+
+  const handleAdd = async (id) => {
+    const token = localStorage.getItem("authToken");
+    console.log(`user Id: ${id}`);
+    toast.success(`User Id is : ${id}`);
+    try {
+      const response = await axios.post(
+        `http://localhost:9000/chat/createPrivateRoom`,
+        { member: [id] },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+      if (response.data.success) {
+        const roomId = response.data.data._id;
+        console.log("Room ID:", roomId);
+        toast.success("Room ready!");
+      }
+    } catch (err) {
+      if (err.response?.status === 401) {
+        toast.error("Session expired! Login again.");
+        localStorage.removeItem("authToken");
+        navigate("/login");
+      } else {
+        toast.error(err.response?.data?.message || "Something went wrong");
+      }
+    }
   };
   return (
     <>
@@ -97,8 +121,13 @@ const Search = () => {
                         <span className="pr-2">
                           <button className="search-btn ">Message</button>
                         </span>
-                        <span>
-                          <button className="add-btn ">ADD</button>
+                        <span className=" ">
+                          <button
+                            className="add-btn cursor-pointer "
+                            onClick={() => handleAdd(contact.id)}
+                          >
+                            ADD
+                          </button>
                         </span>
                       </p>
                     </div>
