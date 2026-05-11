@@ -4,6 +4,7 @@ import { IoIosContacts } from "react-icons/io";
 import { IoMdCall } from "react-icons/io";
 import { MdOutlineLogout } from "react-icons/md";
 import { CiSearch } from "react-icons/ci";
+import Chat from "./Chat";
 import Search from "./Search";
 
 const Dashboard = () => {
@@ -36,14 +37,14 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="bg-[#0C0C0E] overflow-x-hidden min-w-0 ">
+        <div className="bg-[#0C0C0E] border-[#27272A] border-r border-l overflow-x-hidden min-w-0 ">
           <p className="tracking-[3.6px] text-[18px] text-white p-7">
             Whats'Up
           </p>
           {active === "search" && <Search />}
         </div>
 
-        <div className="bg-black"></div>
+        <div className="bg-black">{active === "chat" && <Chat />}</div>
       </div>
     </>
   );
